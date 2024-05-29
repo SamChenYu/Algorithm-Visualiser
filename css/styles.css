@@ -17,3 +17,26 @@
     stroke: black;
     shape-rendering: crispEdges;
 }
+
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.controlButtons {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.sortingButtons {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.chart {
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    
+}
