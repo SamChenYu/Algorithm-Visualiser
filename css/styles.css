@@ -1,4 +1,9 @@
-
+html, body {
+    overflow: hidden; /* Prevent scrolling */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    height: 100%; /* Ensure full height */
+  }
 
 .bar {
     fill: steelblue;
@@ -22,14 +27,15 @@
 
 
 h1 {
-    font: 24px sans-serif bold;
+    font: 50px verdana;
     text-align: center;
     color:black;
-    font: monospace;
+    margin-bottom: 5px;
+    margin-top: 0px;
 }
 
 .controlButtons {
-    margin-top: 10px;
+    margin-top: 0px;
     text-align: center;
 }
 
@@ -38,13 +44,18 @@ h1 {
     text-align: center;
 }
 
+svg:not(:root) {
+    overflow: visible; /* Change overflow to visible */
+    overflow-x: visible; /* Change overflow-x to visible if needed */
+    overflow-y: visible; /* Change overflow-y to visible if needed */
+}
+
 .chart {
     text-align: center;
-    margin-top: 20px;
-    margin-left: 20px;
-    width: 100%;
-    height: 100%;
 }
+
+
+
 
 /* Reset */
 button {
@@ -61,6 +72,7 @@ button {
     display: inline-block;
     position: relative;
     padding: 10px 15px;
+    margin-bottom: 10px;
     top: 0;
     font-size: 20px;
     font-family: "Open Sans", Helvetica;
@@ -107,3 +119,4 @@ button {
     background: blue;
     color: white;
 }
+

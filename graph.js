@@ -3,8 +3,8 @@ let data = generateData();
 
 // Define the dimensions and margins for the chart
 const margin = { top: 20, right: 30, bottom: 40, left: 40 };
-const width = 1000 - margin.left - margin.right;
-const height = 500 - margin.top - margin.bottom;
+const width = window.innerWidth * 0.6;
+const height = window.innerHeight * 0.6;
 
 // Create the SVG element
 const svg = d3.select('#chart')
@@ -40,6 +40,49 @@ const yAxis = svg.append('g')
 createAndUpdateBars(data);
 
 
+
+
+
+
+
+
+
+
+
+// Function to update chart dimensions and redraw
+function updateChart() {
+    // Update dimensions based on viewport size
+    const newWidth = window.innerWidth * 0.6;
+    const newHeight = window.innerHeight * 0.6;
+  
+    // Update SVG width and height attributes
+    svg.attr('width', newWidth + margin.left + margin.right)
+       .attr('height', newHeight + margin.top + margin.bottom);
+  
+    // Update scales
+    xScale.range([0, newWidth]);
+    yScale.range([newHeight, 0]);
+  
+    // Update x axis
+    xAxis.attr('transform', `translate(0, ${newHeight})`).call(d3.axisBottom(xScale).tickFormat(() => ''));
+  
+    // Update y axis
+    yAxis.call(d3.axisLeft(yScale));
+  
+    // Update the position of the <g> element containing bars
+    svg.selectAll('.bar-group')
+       .attr('transform', (d, i) => `translate(${xScale(i)}, 0)`);
+  
+    // Redraw bars or any other elements as needed
+    createAndUpdateBars(data);
+  }
+  
+  // Call updateChart initially
+  updateChart();
+  
+  // Listen for resize event and update chart accordingly
+  window.addEventListener('resize', updateChart);
+  
 
 
 
